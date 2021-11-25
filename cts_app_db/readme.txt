@@ -1,14 +1,6 @@
 ------------------
 db name:"cts_app_db"
 ------------------
-
-------------------
-User:"Cts_admin"     /*accès dev*/
-Pwd:"Cad68mF309"
-------------------
-User:"Cts_app"       /*accès machine*/
-Pwd:"Cab7pPd5c0"
-
 ------------------
 collections
 ------------------
