@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import DeliveryBox from '../_shared/_DeliveryBox';
 const DeliveryStack = ( props ) => {
 
     return (
@@ -10,10 +10,10 @@ const DeliveryStack = ( props ) => {
             <Text style = { styles.header }>
                 Livraison Prioritaire:
             </Text>
-
             <Text style = { styles.header }>
                 Demande Particulier:
             </Text>
+            <DeliveryBox />
         </View>
     )
 };
