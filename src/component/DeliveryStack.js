@@ -8,7 +8,7 @@ const DeliveryStack = ( props ) => {
         <View  style = { styles.container }>
 
             <Text style = { styles.header }>
-                Livraison Priotitaire:
+                Livraison Prioritaire:
             </Text>
 
             <Text style = { styles.header }>
