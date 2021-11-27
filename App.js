@@ -8,8 +8,10 @@ import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-ico
 
 import _Title from './src/_shared/_Title.js';
 
+import DstackNav from './src/navigation/DstackNav.js';
+
 import DeliveryLoad from './src/component/DeliveryLoad.js'; 
-import DeliveryStack from './src/component/DeliveryStack.js';
+import HomeDelivery from './src/component/HomeDelivery';
 import Profil from './src/component/Profil.js';
 
 // const Stack = createNativeStackNavigator();
@@ -48,7 +50,7 @@ const App = () => {
         <Tabs.Screen name="Delivery_load" component={DeliveryLoad}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
 
-        <Tabs.Screen name="Delivery_stack" component={DeliveryStack}
+        <Tabs.Screen name="Delivery_stack" component={DstackNav}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
 
         <Tabs.Screen name="Profil" component={Profil}

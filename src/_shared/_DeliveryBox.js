@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-const DeliveryBox = () => {
+import { StyleSheet, Text, View, Button } from 'react-native';
+const _DeliveryBox = ({navigation}) => {
     return (
         <View style = {[styles.box, { flexDirection : "column" }]}>
             <View style = {[styles.content, { flexDirection : "row" }]}>
@@ -54,7 +53,16 @@ const DeliveryBox = () => {
                     <Text>Livraison à :</Text>
 
                     <Text>11 rue de la cathédrale       </Text>
+                    
+                    <Button
+                        onPress={ () => {
+                        navigation.navigate('Delivery_screen')
+                        }}
+                        title="voir +"
+                        color="#841584"
+                    />
                 </View>
+                
             </View>
         </View>
     )
@@ -76,7 +84,8 @@ const styles = StyleSheet.create ({
     content: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 12
+        paddingHorizontal: 12,
+        marginBottom: 5
     },
     produit:{
         marginVertical: 12,
@@ -86,4 +95,4 @@ const styles = StyleSheet.create ({
     }
 });
 
-export default DeliveryBox;
+export default _DeliveryBox;

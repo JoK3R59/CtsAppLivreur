@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import DeliveryBox from '../_shared/_DeliveryBox';
-const DeliveryStack = ( props ) => {
+import { View, Text, StyleSheet} from 'react-native';
+import _DeliveryBox from '../_shared/_DeliveryBox';
+const HomeDelivery = ( {navigation} ) => {
 
     return (
 
@@ -13,7 +13,7 @@ const DeliveryStack = ( props ) => {
             <Text style = { styles.header }>
                 Demande Particulier:
             </Text>
-            <DeliveryBox />
+            <_DeliveryBox navigation = {navigation}/>
         </View>
     )
 };
@@ -35,4 +35,4 @@ const styles = StyleSheet.create ({
     }
 });
 
-export default DeliveryStack;
+export default HomeDelivery;
