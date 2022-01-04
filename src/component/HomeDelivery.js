@@ -6,13 +6,12 @@ const HomeDelivery = ( {navigation} ) => {
     return (
 
         <View  style = { styles.container }>
-
-            <Text style = { styles.header }>
-                Livraison Prioritaire:
-            </Text>
-            <Text style = { styles.header }>
-                Demande Particulier:
-            </Text>
+            <View style = {[{height: "auto", width: "100%", marginBottom: 5}]}>
+                <Text style = { styles.header }>Livraison Prioritaire:</Text>
+            </View>
+            <View style ={[{height: "auto", width: "100%", marginBottom: 5}]}>
+                <Text style = {styles.header}>Demande Particulier:</Text>
+            </View>
             <_DeliveryBox navigation = {navigation}/>
         </View>
     )
@@ -23,13 +22,14 @@ const styles = StyleSheet.create ({
         flex: 1,
         // justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
-        height: 'auto'
+        backgroundColor: '#48c9b0'
+    },
+    header_container:{
+        
     },
     header: {
-        backgroundColor: `#f0f8ff`,
+        backgroundColor: `white`,
         width: '100%',
-        borderWidth: 0.5,
         padding: 10,
         fontSize: 24
     }

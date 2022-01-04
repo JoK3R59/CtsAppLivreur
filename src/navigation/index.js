@@ -4,11 +4,12 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, AntDesign,Octicons } from '@expo/vector-icons';
 
 import _Title from '../_shared/_Title'
 
 import DstackNav from './DstackNav';
+import DloadNav from './DloadNav';
 
 import DeliveryLoad from '../component/DeliveryLoad'; 
 import HomeDelivery from '../component/HomeDelivery';
@@ -31,10 +32,10 @@ const AppNavigation = () => {
              tabBarIcon: ({ focused, color, size }) => {
       
                 if (route.name === 'Delivery_load') {
-                  return <MaterialCommunityIcons name="steering" size = { size } color= { color } />
+                  return <MaterialCommunityIcons name="truck-fast" size = { size } color= { color } />
                 }
                 else if (route.name === 'Delivery_stack') {
-                  return <AntDesign name="plussquare" size = { size } color= { color } />
+                  return <Octicons name="package" size = { size } color= { color } />
                 }
                 else {
                   
@@ -48,7 +49,7 @@ const AppNavigation = () => {
         inactiveTintColor: '#a9a9a9'
     }}>
         
-        <Tabs.Screen name="Delivery_load" component={DeliveryLoad}
+        <Tabs.Screen name="Delivery_load" component={DloadNav}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
 
         <Tabs.Screen name="Delivery_stack" component={DstackNav}

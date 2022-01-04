@@ -1,69 +1,73 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { Fontisto } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons'; 
 const _DeliveryBox = ({navigation}) => {
     return (
         <View style = {[styles.box, { flexDirection : "column" }]}>
-            <View style = {[styles.content, { flexDirection : "row" }]}>
+            <View style = {[{ flexDirection : "row" , justifyContent:"space-between"}]}>
 
                 <View style = { styles.produit }>
 
-                    <Text>2 Produits</Text>
+                    <Text>2</Text>
+                    <Text>Produits</Text>
                 </View>
 
-                <View style = {[styles.content, { flexDirection : "column" }]}>
-
-                    <Text>Demande pour le :</Text>
-
-                    <Text>13/12/2021</Text>
-                </View>
-            </View>
-            <View style = {[styles.content, { flexDirection : "row" }]}>
-
-                <View style = { styles.box }>
-
-                    <Text>A</Text>
-                </View>
-
-                <View style = {[styles.content, { flexDirection : "column" }]}>
-
-                    <Text>Enlèvement à :</Text>
-
-                    <Text>11 rue saint didier des bois</Text>
-                </View>
-            </View>
-            <View style = {[styles.content, { flexDirection : "column" }]}>
-
-                <View style = { styles.content }>
-
-                    <Text>|</Text>
-                    <Text>|</Text>
-                    <Text>v</Text>
-                </View>
-
-            </View>
-            <View style = {[styles.content, { flexDirection : "row" }]}>
-
-                <View style = { styles.box }>
-
-                    <Text>B</Text>
-                </View>
-
-                <View style = {[styles.content, { flexDirection : "column" }]}>
-
-                    <Text>Livraison à :</Text>
-
-                    <Text>11 rue de la cathédrale       </Text>
+                <View style = {[styles.datebox,{ flexDirection : "column"}]}>
                     
-                    <Button
-                        onPress={ () => {
-                        navigation.navigate('Delivery_screen')
-                        }}
-                        title="voir +"
-                        color="#841584"
-                    />
+                    <Text style = {[{fontSize: 16}]}>Demande pour le :</Text>
+                    <View style = {[{flexDirection:"row"}]}>
+                        <Text>13/12/2021</Text>
+                        <Fontisto name="date" size={16} color="black" />
+                    </View>
+
+                   
                 </View>
-                
             </View>
+            <View style = {[{ flexDirection : "row",justifyContent:"center" }]}>
+                <View style = {[styles.envbox,{ flexDirection : "column" }]}>
+                    <View style = {[{flexDirection:"row"}]}>
+                        <Ionicons name="md-golf-sharp" size={17} color="black" />
+                        <Text style = {[{fontSize: 17}]}>Enlèvement à :</Text>
+                    </View>
+                    <Text>11 rue saint didier des bois/ 59780/ Baisieux</Text>
+                </View>
+            </View>
+            <View style = {[{flexDirection:"row", justifyContent:"center"}]}>
+                <View style = {[{flexDirection : "column"}]}>
+                 <View>
+                     <Entypo name="flow-line" size={24} color="black" />
+                 </View>
+                 <View style={[{flexDirection:"row"}]}>
+                     <MaterialCommunityIcons name="routes" size={30} color="black" />
+                     <Text>+1 arrêt</Text>
+                 </View>
+                 <View>
+                     <Entypo name="flow-line" size={24} color="black" />
+                 </View>
+                </View>
+            </View>
+            <View style = {[{ flexDirection : "row",justifyContent:"center" }]}>
+                <View style = {[styles.envbox,{ flexDirection : "column" }]}>
+                    <View style = {[{flexDirection:"row"}]}>
+                        <MaterialCommunityIcons name="home-map-marker" size={17} color="black" />
+                        <Text style = {[{fontSize: 17}]}>Livraison à :</Text>
+                    </View>
+                    <Text>11 rue saint didier des bois/ 59780/ Baisieux</Text>
+                </View>
+            </View>
+            <View style = {[{marginTop: 5}]}>
+                <Button
+                            onPress={ () => {
+                            navigation.navigate('Commande')
+                            }}
+                            title="Voire +"
+                            color="#841584"
+                />
+            </View>
+            
         </View>
     )
 };
@@ -77,21 +81,32 @@ const styles = StyleSheet.create ({
         fontSize: 24
     },
     box: {
-        marginVertical: 12,
-        padding: 10,
-        borderWidth: 0.5,
+        backgroundColor: "#D5F5E3",
+        width: "97%",
+        borderTopRightRadius: 19,
+
     },
-    content: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingHorizontal: 12,
-        marginBottom: 5
+    datebox:{
+        margin: 20,
+        alignItems:"flex-end"
+    },
+    envbox:{
+        backgroundColor:"white",
+        borderRadius:19,
+        padding: 5
     },
     produit:{
-        marginVertical: 12,
-        padding: 10,
-        borderWidth: 0.5,
-        borderRadius: 100
+        flexDirection: "column",
+        marginTop: 5,
+        marginLeft: 5,
+        borderRadius: 100,
+        borderWidth: 2.5,
+        borderColor:"#2e4053",
+        width: 65,
+        height: 65,
+        backgroundColor: '#e6e8dd',
+        alignItems: 'center',
+        paddingTop: 10
     }
 });
 

@@ -13,7 +13,7 @@ function DstackNav() {
              name = 'Dstack' component = { HomeDelivery } 
             />
             
-            <Stack.Screen name = 'Delivery_screen' component = { DeliveryScreen } />
+            <Stack.Screen name = 'Commande' component = { DeliveryScreen } />
         </Stack.Navigator>
     )
 };

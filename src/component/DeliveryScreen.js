@@ -1,120 +1,132 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Button,ScrollView} from 'react-native';
 
 import _ProductBox from '../_shared/_ProductBox';
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
-const DeliveryScreen = ({navigation}) => {
+const DeliveryScreen = () => {
 
     return (
-
-        <View style = { styles.header }>
-            <View style = {[styles.box, { flexDirection : "column" }]}>
-                <View style = {[styles.content, { flexDirection : "row" }]}>
-                    <View style = {[styles.content, { flexDirection : "column" }]}>
-                        <Text>Demande pour le :</Text>
-                        <Text>13/12/2021</Text>
-                        <Text>_________________</Text>
-                    </View> 
+        <View style = {styles.container}>
+          <ScrollView>
+            <View  style = {[styles.com_box,{ flexDirection : "column" }]}>
+                <View style = {[{ flexDirection : "row", justifyContent:"center"}]}>
+                    <Text style = {[{fontSize:20}]}>Demande pour le :</Text>
                 </View>
-                
+                <View style = {[{ flexDirection : "row", justifyContent:"center"}]}>
+                    <Text style = {[{fontSize:15}]}>29/12/2021</Text>
+                </View>
+                <_ProductBox/>
+                <View style = {[{ flexDirection : "row", justifyContent:"center"}]}>
+                    <Entypo name="flow-line" size={27} color="#48C9B0" />
+                </View>
+                <View style = {[styles.liv_box,{ flexDirection : "column" }]}>
+                    <View style = {[styles.bottom, { flexDirection : "row" }]}>
+                        <View style = { styles.tab}/>
+                        <View  style = {[styles.bottom, { flexDirection : "column" }]}>
+                            <Text>Livraison au :</Text>
+                            <Text>11 rue saint didier des bois</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style = {styles.spec_box}>
+                    <View style = {[styles.list_content, { flexDirection : "column" }]}>
+                        <View  style = {[styles.list, { flexDirection : "row" }]}>
+                            <AntDesign name="checkcircleo" size={15} color="#48C9B0" />
+                            <Text style = {[{fontSize:15,paddingLeft:5}]}>fragile</Text>
+                        </View>
+                        <View  style = {[styles.list, { flexDirection : "row" }]}>
+                            <AntDesign name="checkcircleo" size={15} color="#48C9B0" />
+                            <Text style = {[{fontSize:15,paddingLeft:5}]}>haillon</Text>
+                        </View>
+                        <View  style = {[styles.list, { flexDirection : "row" }]}>
+                            <AntDesign name="checkcircleo" size={15} color="#48C9B0" />
+                            <Text style = {[{fontSize:15,paddingLeft:5}]}>remise en main propre</Text>
+                        </View>
+                    </View>
+                    <View style = {[styles.msg_usr_content, { flexDirection : "column" }]}>
+                        <View  style = {[{ flexDirection : "row" }]}>
+                            <AntDesign name="message1" size={15} color="black" />
+                            <Text style = {[{fontSize:15,paddingLeft:5}]}>Notes du client</Text>
+                        </View>
+                        <View  style = {[{ flexDirection : "row", marginTop:5}]}>
+                            <View style = {[styles.tab,{marginRight:5}]}/>
+                            <Text>testyuregyucbryu{"\n"}ezyvfeyuzvyuezvuzeezfbhez{"\n"}herbherbj</Text>
+                        </View>   
+                    </View>
+                    <View style = {[{ flexDirection : "row", marginTop:5,justifyContent:"center"}]}>
+                        <Button
+                            onPress={ () => {
+                            alert("action click (suivre)")
+                            }}
+                            title="suivre"
+                            color="#841584"
+                        ></Button>
+                    </View>
+                </View>
             </View>
-            <_ProductBox />
-            <View style = {[styles.bottom, { flexDirection : "row" }]}>
-                <View style = { styles.tab}/>
-                <View  style = {[styles.bottom, { flexDirection : "column" }]}>
-                    <Text>livraison à :</Text>
-                    <Text>11 rue saint didier des bois</Text>
-                </View>
-            </View >
-            <View style = {[styles.list_Sproperty, { flexDirection : "column" }]}>
-                <View style = {[styles.bottom, { flexDirection : "row" }]}>
-                    <View style = {styles.circle_property}/>
-                    <Text>fragile</Text>
-                </View>
-                <View style = {[styles.bottom, { flexDirection : "row" }]}>
-                    <View style = {styles.circle_property}/>
-                    <Text>récéption en main propre</Text>
-                </View>
-                <View style = {[styles.bottom, { flexDirection : "row" }]}>
-                    <View style = {styles.circle_property}/>
-                    <Text>hayon</Text>
-                </View>
-            </View>
-            <View style = {[styles.bottom, { flexDirection : "column" }]}>
-                <Text style = {styles.Title_spe_client}>Notes du clients</Text>
-                <View style = {styles.notes_box}>
-                    <Text>Sonner à la porte</Text>
-                </View>
-            </View>
+          </ScrollView>
         </View>
     )
-};
-
+};    
 const styles = StyleSheet.create ({
-    header: {
-        width: '100%', 
-        backgroundColor: `#f0f8ff`,
-        fontSize: 24
-    },
-    box: {
-        marginVertical: 12,
-    },
-    content: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     container: {
-        // flex: 1,
-        // justifyContent: 'center',
-        // // flexDirection: 'row',
-        // alignItems: 'center',
-        // padding: 12,
-        // marginLeft: -18,
-        // // marginTop: -18,
-        // // marginBottom: -38,
-        // // backgroundColor: 'red'
-        // borderWidth: 2
-        backgroundColor: 'grey'
+        backgroundColor: '#48C9B0',
+        width:"100%",
+        height:"100%"
+    },
+    com_box:{
+        backgroundColor: 'white',
+        marginHorizontal: 5,
+        marginTop: 5,
+        borderRadius:19,
+        paddingBottom: 5
+    },
+    liv_box: {
+        backgroundColor: '#D5F5E3',
+        marginHorizontal: 5,
+        marginTop: 5,
+        borderRadius:19,
+        padding: 5
+    },
+    spec_box:{
+        backgroundColor: '#D5F5E3',
+        marginHorizontal: 5,
+        marginTop: 5,
+        borderRadius:19,
+        padding: 5
     },
     tab: {
         width:5,
-        backgroundColor: 'grey'
+        backgroundColor: '#48C9B0',
+        borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 15
     },
     bottom: {
         backgroundColor: 'white',
-        marginTop: 5
+        marginHorizontal:10,
+        borderTopRightRadius: 100,
+        borderBottomRightRadius: 100,
+        borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 15
     },
-    button:{
-        width: 80,
-        alignItems: 'center'
-
+    list_content:{
+        backgroundColor: 'white',
+        marginHorizontal:10,
+        borderRadius: 15
     },
-    list_Sproperty:{
-        marginTop: 15,
-        backgroundColor: 'white'
+    list :{
+        backgroundColor: 'white',
+        marginHorizontal:10,
+        marginVertical: 5
     },
-    circle_property:{
-        borderRadius: 100,
-        borderWidth: 0.5,
-        width: 5,
-        height: 5,
-        backgroundColor: 'blue',
-        alignItems: 'center',
-        paddingTop: 10,
-        marginLeft: 15
-    },
-    Title_spe_client: {
-        marginLeft: 5,
-        fontSize: 15,
-    },
-    notes_box:{
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: 'black',
-        width: '90%',
-        height: 50,
-        marginLeft: 5,
+    msg_usr_content:{
+        backgroundColor: 'white',
+        marginHorizontal:10,
+        borderRadius: 15,
+        padding:5,
+        marginTop:5
     }
 });
-
 export default DeliveryScreen;

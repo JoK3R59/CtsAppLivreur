@@ -1,7 +1,7 @@
 
 const loginState = {
     userName: null,
-    userToken: null,
+    userToken: 22222,
 };
 /* code back server
     -checker l'entré user

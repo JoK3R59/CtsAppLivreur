@@ -1,25 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet} from 'react-native';
+import _MyDelivery from '../_shared/_MyDelivery';
 
-const DeliveryLoad = ( props ) => {
+const DeliveryLoad = ({navigation}) => {
 
     return (
 
         <View style = { styles.container }>
-            
-            <Text>
-                Delivery_load
-            </Text>
+            <_MyDelivery navigation={navigation}/>
         </View>
     )
 };
 
 const styles = StyleSheet.create ({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'grey'
+        backgroundColor: '#48c9b0',
+        flex:1
     }
 });
 
