@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-import loginState from '../_shared/_EvalLogin';
 
 const textLogin = 'Introduisez votre login et votre mot de passe pour accéder à votre compte.';
-const LoginScreen = () => {
+const LoginScreen = ({onChange}) => {
 
     const [ login, setLogin ] = useState('')
 
@@ -17,9 +16,25 @@ const LoginScreen = () => {
     const onChangePassword = value => {
         setPassword(value)
     };
+    const onReset = () => {          //remettre les champs à 0
+        setLogin('')
+        setPassword('')
+    }
+
+    const onValidate = () => {
+        /*validation coté front*/
+        if (((login !== '')&&(password !== ''))&&((login !== null)&&(password !== null))){
+            onChange(true) 
+        }else {
+            alert("erreur")
+            onReset()
+              
+        }
+        
+    };
     
     return (
-
+        
         <View style = { styles.container }>
             <Text style = { styles.textStyle }>
                 {textLogin}
@@ -48,7 +63,7 @@ const LoginScreen = () => {
             </View>
 
             <Button
-             onPress={ () => {}}
+             onPress={ () => {onValidate()}}
              title= 'Connexion'
              color= "#06d6a0"
             />
@@ -63,13 +78,13 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        // justifyContent: 'center',
         backgroundColor: '#fff'
     },
     textStyle: {
         textAlign: 'center',
         marginHorizontal: 30,
-        marginVertical: 50
+        marginTop:"50%",
+        marginBottom: 20
     },
     viewContent: {
         marginVertical: 8

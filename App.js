@@ -1,20 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import LoginScreen from './src/component/LoginScreen';
 import AppNavigation from './src/navigation/index';
-import loginState from './src/_shared/_EvalLogin';
+
 
 const App = () => {
 
+  const [ isSignedIn, setIsSignedIn ] = useState(false)
+
+  const onChange = value => {
+    setIsSignedIn(value)
+  };
   return (
     <SafeAreaView style = {{ flex: 1 }}>
-      { loginState.userToken !== null ? (
+      { isSignedIn !== false ? (
         <AppNavigation />
       )
       :
-        <LoginScreen/>
+        <LoginScreen onChange={onChange} />
       }
       
     </SafeAreaView>

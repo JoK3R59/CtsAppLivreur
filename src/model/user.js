@@ -16,4 +16,4 @@ export default Users = [
     },
 ];
 
-/*fichier user pour tester la navigation front-end entre le loginscreen et la navigation racine de l'app*/
+/*fichier user pour tester la navigation entre le loginscreen et la navigation racine de l'app*/

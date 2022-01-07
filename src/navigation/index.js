@@ -1,20 +1,19 @@
 import React from 'react';
 // import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome, MaterialCommunityIcons, AntDesign,Octicons } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 
 import _Title from '../_shared/_Title'
 
 import DstackNav from './DstackNav';
 import DloadNav from './DloadNav';
+import ProfilNav from './ProfileNav';
 
-import DeliveryLoad from '../component/DeliveryLoad'; 
-import HomeDelivery from '../component/HomeDelivery';
-import Profil from '../component/Profil';
-import LoginScreen from '../component/LoginScreen';
+ 
+
 // const Stack = createNativeStackNavigator();
 // console.log('Objet Stack : ', Stack)
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -31,7 +30,7 @@ const AppNavigation = () => {
         ({ route }) => ({
              tabBarIcon: ({ focused, color, size }) => {
       
-                if (route.name === 'Delivery_load') {
+                if (route.name === 'Mes Livraisons') {
                   return <MaterialCommunityIcons name="truck-fast" size = { size } color= { color } />
                 }
                 else if (route.name === 'Delivery_stack') {
@@ -49,13 +48,13 @@ const AppNavigation = () => {
         inactiveTintColor: '#a9a9a9'
     }}>
         
-        <Tabs.Screen name="Delivery_load" component={DloadNav}
+        <Tabs.Screen name="Mes Livraisons" component={DloadNav}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
 
-        <Tabs.Screen name="Delivery_stack" component={DstackNav}
+        <Tabs.Screen name="Commandes" component={DstackNav}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
 
-        <Tabs.Screen name="Profil" component={Profil}
+        <Tabs.Screen name="Profil" component={ProfilNav}
         options={{ headerTitle: (props) => <_Title {...props} /> }}/>
       </Tabs.Navigator>
 
