@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
+// Firebase config
+import { auth } from '../../firebase';
+
+// REDUX
+import { useDispatch } from 'react-redux';
+import { userConnected } from './redux/actions';
 
 const textLogin = 'Introduisez votre login et votre mot de passe pour accéder à votre compte.';
 const LoginScreen = ({onChange}) => {
+
+    // REDUX fonction dispatch (envoi des données du store)
+    const dispatch = useDispatch()
 
     const [ login, setLogin ] = useState('')
 
@@ -20,13 +29,28 @@ const LoginScreen = ({onChange}) => {
         setLogin('')
         setPassword('')
     }
+     // Connexion à Firebase
+    const handlerLogin = () => {
 
+        auth
+         .signInWithEmailAndPassword(login, password) //le login sera temporairement une addresse mail bidon
+         .then(userCredentials => {
+
+            const user = userCredentials.user;
+            console.log('Connexion avec : ', user.email)
+            dispatch(userConnected(user.email))
+            onChange(true)
+        })
+        .catch(error => alert(error.message))
+    }
     const onValidate = () => {
         /*validation coté front*/
-        if (((login !== '')&&(password !== ''))&&((login !== null)&&(password !== null))){
-            onChange(true) 
+        let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (((login !== '')&&(password !== ''))&&((login !== null)&&(password !== null))&&(re.test(login))){
+            handlerLogin()
         }else {
-            alert("erreur")
+            alert("login ou mot de passe incorrect")
             onReset()
               
         }

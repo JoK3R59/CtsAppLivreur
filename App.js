@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 // import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native';
 
+import { Provider } from 'react-redux';
+import { store } from './src/component/redux/store'
+
 import LoginScreen from './src/component/LoginScreen';
 import AppNavigation from './src/navigation/index';
 
@@ -14,15 +17,15 @@ const App = () => {
     setIsSignedIn(value)
   };
   return (
-    <SafeAreaView style = {{ flex: 1 }}>
-      { isSignedIn !== false ? (
-        <AppNavigation />
-      )
+    <Provider store={store}>
+      <SafeAreaView style = {{ flex: 1 }}>
+      { isSignedIn !== false ? (<AppNavigation />)
       :
-        <LoginScreen onChange={onChange} />
+      <LoginScreen onChange={onChange} />
       }
-      
-    </SafeAreaView>
+      </SafeAreaView>
+    </Provider>
+    
   );
 }
 
